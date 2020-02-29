@@ -42,4 +42,32 @@ def naming_system
   # So, if we have the "Kingdom" node we should be able to "tunnel" into the
   # HoH all the way to Species!
 
+    lasts = {
+      label: "Species",
+      sub_category: nil
+    }  
+
+    gen_nus = {
+    label: "Family",
+    sub_category: {
+      label: "Genus", sub_category: lasts
+    }
+  }
+  
+  animals = {
+    label: "Kingdom",
+    sub_category: {
+      label: "Phylum",
+      sub_category: {
+        label: "Class",
+        sub_category: { label: "Order", sub_category: gen_nus }
+      }
+    }
+  }
+  
+  
+
+  return animals
 end
+#  expect(starting_node[:sub_category][:sub_category][:sub_category][:label]).to eq("Order")
+
